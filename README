@@ -1,0 +1,50 @@
+# S1 – Tasca 3
+## Nivell 1 – Exercici 1: Duplicats
+
+### Enunciat
+
+Crea una classe anomenada `Month` amb un atribut `name`, que emmagatzemi el nom del mes.
+Afegeix 11 objectes `Month` a un `ArrayList`, deixant fora **"Agost"**.
+Insereix aquest mes a la posició corresponent i comprova que l’ordre dels mesos és correcte.
+
+Converteix després l’`ArrayList` en un `HashSet` i verifica que no es permeten duplicats.
+
+Finalment, recorre la col·lecció amb un bucle `for` i amb un `Iterator`.
+
+---
+
+## Description
+
+This exercise practices the use of Java collections, specifically **ArrayList** and **HashSet**, to understand their behavior regarding order and duplicated elements.
+
+A `Month` class is created to represent a month of the year. An `ArrayList` is used to store the months in order and later converted into a `HashSet` to verify that duplicate elements are not allowed.
+
+---
+
+## Implementation details
+
+- A `Month` class is created with a `name` attribute.
+- Eleven `Month` objects are added to an `ArrayList`, excluding **August**.
+- **August** is then inserted in the correct position in the list.
+- The list order is checked by printing its contents.
+- The `ArrayList` is converted into a `HashSet`.
+- A duplicated month is added to verify that duplicates are not stored.
+- The collection is traversed using:
+  - a **for-each loop**
+  - an **Iterator**
+
+---
+
+## Technologies used
+
+- Java
+- IntelliJ IDEA
+- Java Collections Framework (`ArrayList`, `HashSet`, `Iterator`)
+
+---
+
+## Notes
+
+- The order of elements is preserved in the `ArrayList`.
+- The order is not guaranteed in the `HashSet`.
+- Duplicate elements are ignored when using a `HashSet`.
