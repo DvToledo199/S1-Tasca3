@@ -48,3 +48,48 @@ A `Month` class is created to represent a month of the year. An `ArrayList` is u
 - The order of elements is preserved in the `ArrayList`.
 - The order is not guaranteed in the `HashSet`.
 - Duplicate elements are ignored when using a `HashSet`.
+
+---
+
+# S1 – Tasca 3
+## Nivell 1 – Exercici 2: ListIterator
+
+### Enunciat (original)
+
+Crea i emplena una `List<Integer>`.
+Crea una segona llista i insereix-hi els mateixos elements però en ordre invers.
+Utilitza un `ListIterator` per llegir els elements de la primera i afegir-los a la segona.
+
+---
+
+## Description
+
+This exercise practices list manipulation in Java using **List** and **ListIterator**.
+
+The goal is to create a second list that contains the same elements as the first one, but in reverse order, using a `ListIterator` to traverse the list backwards.
+
+---
+
+## Implementation details
+
+- A `List<Integer>` is created and filled with integer values.
+- A second empty list is created to store the reversed elements.
+- A `ListIterator` is obtained starting from the end of the first list.
+- The iterator is used to traverse the list backwards.
+- Each element read by the iterator is added to the second list.
+
+---
+
+## Technologies used
+
+- Java
+- IntelliJ IDEA
+- Java Collections Framework (`List`, `ArrayList`, `ListIterator`)
+
+---
+
+## Notes
+
+- `ListIterator` allows traversing a list both forward and backward.
+- Starting the iterator at `list.size()` makes it possible to iterate from the end.
+- The reverse order is achieved without using indexes or utility methods.
