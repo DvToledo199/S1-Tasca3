@@ -1,9 +1,11 @@
 package level1.exercise1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
 
         Month jan = new Month("January");
@@ -22,7 +24,6 @@ public class Main {
         ArrayList<Month> months = new ArrayList<>();
 
 
-
         months.add(jan);
         months.add(feb);
         months.add(mar);
@@ -37,8 +38,26 @@ public class Main {
 
         months.add(7, aug);
 
-        System.out.println(months);
+        months.add(sep);
 
+
+        HashSet<Month> months1 = new HashSet<>(months);
+
+
+        System.out.println(months);
+        System.out.println(months1);
+
+        for (Month m : months1) {
+            System.out.println(m);
+
+        }
+
+        Iterator<Month> iterator = months1.iterator();
+
+        while (iterator.hasNext()) {
+            Month month = iterator.next();
+            System.out.println(month);
+        }
 
 
     }
