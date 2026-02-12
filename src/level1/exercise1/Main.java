@@ -21,6 +21,8 @@ public class Main {
 
         ArrayList<Month> months = new ArrayList<>();
 
+
+
         months.add(jan);
         months.add(feb);
         months.add(mar);
@@ -32,6 +34,11 @@ public class Main {
         months.add(oct);
         months.add(nov);
         months.add(dec);
+
+        months.add(7, aug);
+
+        System.out.println(months);
+
 
 
     }
