@@ -2,8 +2,7 @@ package level1.exercise3;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -19,7 +18,34 @@ public class Main {
         }
         reader.close();
 
-        System.out.println(mapCountries);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter your name:");
+        String namePlayer = sc.nextLine();
+
+        List<String> listCountries = new ArrayList<>(mapCountries.keySet());
+
+        int sumaPuntos = 0;
+
+        for (int i = 0; i < 10; i++) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(listCountries.size());
+            String randomCountry = listCountries.get(randomIndex);
+
+            System.out.println("What is the capital of " + randomCountry + "?");
+
+            String answer = sc.nextLine();
+
+            if (answer.equalsIgnoreCase(mapCountries.get(randomCountry))) {
+                sumaPuntos++;
+                System.out.println("Correct!");
+            } else {
+                System.out.println("Incorrect, the capital is: " + mapCountries.get(randomCountry));
+            }
+            listCountries.remove(randomCountry);
+        }
+
+        System.out.println("Congratulations! Your final score is: " + sumaPuntos + " points.");
 
 
     }
