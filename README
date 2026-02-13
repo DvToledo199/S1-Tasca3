@@ -54,7 +54,7 @@ A `Month` class is created to represent a month of the year. An `ArrayList` is u
 # S1 – Tasca 3
 ## Nivell 1 – Exercici 2: ListIterator
 
-### Enunciat (original)
+### Enunciat
 
 Crea i emplena una `List<Integer>`.
 Crea una segona llista i insereix-hi els mateixos elements però en ordre invers.
@@ -99,7 +99,7 @@ The goal is to create a second list that contains the same elements as the first
 # S1 – Tasca 3
 ## Nivell 1 – Exercici 3: Capital Game
 
-### Enunciat (original)
+### Enunciat
 
 En aquest exercici posarem en pràctica la lectura de fitxers, l’ús de col·leccions com `HashMap` i la interacció amb l’usuari mitjançant un petit joc de preguntes.
 
@@ -155,3 +155,46 @@ At the end of the game, the final score is displayed and saved to a file.
 - Capital comparison ignores uppercase and lowercase differences.
 - The results file is created automatically if it does not exist.
 - Each game session appends a new line to the classification file.
+
+---
+
+
+# S1 – Tasca 3
+## Nivell 2 – Exercici 1: Restaurants (HashSet & equals/hashCode)
+
+### Enunciat
+
+Crea una classe anomenada `Restaurant` amb dos atributs: `name` (nom del restaurant) i `score` (puntuació). Emmagatzema diversos restaurants en un `HashSet<Restaurant>`. No s'han de permetre duplicats exactes (mateix nom i puntuació), per tant, cal sobreescriure correctament els mètodes `equals()` i `hashCode()`. Dos restaurants amb el mateix nom però puntuacions diferents sí que es poden afegir.
+
+---
+
+## Description
+
+This exercise focuses on using a **HashSet** with custom objects and understanding how Java determines object equality. The goal is to prevent exact duplicates of restaurants (same name and score) by correctly overriding `equals()` and `hashCode()`.
+
+---
+
+## Implementation details
+
+- Create a `Restaurant` class with `name` and `score` attributes.
+- Override the `equals()` and `hashCode()` methods to ensure that two restaurants are considered equal if both their name and score are the same.
+- Use a `HashSet<Restaurant>` to store restaurant objects.
+- Attempt to add duplicate restaurants and verify that exact duplicates are not added.
+- Print the contents of the collection to show the unique elements.
+
+---
+
+## Technologies used
+
+- Java
+- IntelliJ IDEA
+- Java Collections Framework (`HashSet`)
+- `Objects`
+
+---
+
+## Notes
+
+- `HashSet` does not preserve insertion order.
+- Equality is defined by both the `name` and `score` attributes.
+- The `equals()` and `hashCode()` implementations must be consistent to ensure correct behavior in the set.
