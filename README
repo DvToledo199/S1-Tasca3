@@ -93,3 +93,65 @@ The goal is to create a second list that contains the same elements as the first
 - `ListIterator` allows traversing a list both forward and backward.
 - Starting the iterator at `list.size()` makes it possible to iterate from the end.
 - The reverse order is achieved without using indexes or utility methods.
+
+---
+
+# S1 – Tasca 3
+## Nivell 1 – Exercici 3: Capital Game
+
+### Enunciat (original)
+
+En aquest exercici posarem en pràctica la lectura de fitxers, l’ús de col·leccions com `HashMap` i la interacció amb l’usuari mitjançant un petit joc de preguntes.
+
+A partir del fitxer `countries.txt`, que conté parelles de país i capital separades per espais, el programa ha de llegir totes les dades i emmagatzemar-les en un `HashMap<String, String>`, on la clau és el nom del país i el valor, la seva capital.
+
+Un cop carregades les dades, el programa demanarà el nom de l’usuari/ària i començarà el joc.
+
+El joc consisteix a realitzar 10 preguntes, escollint aleatòriament 10 països diferents. En cada ronda, es mostrarà el nom d’un país i l’usuari/ària haurà d’introduir el nom de la seva capital. Si la resposta és correcta, es sumarà un punt.
+
+Al final del joc, es mostrarà la puntuació total obtinguda i es guardarà el nom de l’usuari/ària i la seva puntuació en un fitxer anomenat `classification.txt`.
+
+---
+
+## Description
+
+This exercise implements a simple capital quiz game to practice file reading, Java collections, and user interaction.
+
+The program reads a text file containing countries and their capitals and stores them in a `HashMap`. The user is then asked to answer the capital of 10 randomly selected countries. Each correct answer increases the score by one point.
+
+At the end of the game, the final score is displayed and saved to a file.
+
+---
+
+## Implementation details
+
+- The file `countries.txt` is read line by line using `BufferedReader`.
+- Each line is split into country and capital and stored in a `HashMap<String, String>`.
+- The user is asked to enter their name.
+- A list of countries is created from the map keys to allow random selection.
+- Ten different countries are selected randomly.
+- After each question:
+  - the answer is checked (ignoring case)
+  - feedback is shown to the user
+  - the used country is removed to avoid repetition
+- The final score is displayed.
+- The user name and score are appended to `classification.txt`.
+
+---
+
+## Technologies used
+
+- Java
+- IntelliJ IDEA
+- Java I/O (`BufferedReader`, `BufferedWriter`)
+- Java Collections Framework (`HashMap`, `ArrayList`, `List`)
+- `Random`
+
+---
+
+## Notes
+
+- Countries are not repeated during the game.
+- Capital comparison ignores uppercase and lowercase differences.
+- The results file is created automatically if it does not exist.
+- Each game session appends a new line to the classification file.

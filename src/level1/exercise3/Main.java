@@ -1,7 +1,9 @@
 package level1.exercise3;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.*;
 
 public class Main {
@@ -26,9 +28,9 @@ public class Main {
         List<String> listCountries = new ArrayList<>(mapCountries.keySet());
 
         int sumaPuntos = 0;
+        Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            Random random = new Random();
             int randomIndex = random.nextInt(listCountries.size());
             String randomCountry = listCountries.get(randomIndex);
 
@@ -46,6 +48,13 @@ public class Main {
         }
 
         System.out.println("Congratulations! Your final score is: " + sumaPuntos + " points.");
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("classification.txt", true));
+        writer.write(namePlayer + " - " + sumaPuntos + " points");
+        writer.newLine();
+        writer.close();
+
+        sc.close();
 
 
     }
