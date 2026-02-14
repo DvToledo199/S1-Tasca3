@@ -51,7 +51,6 @@ A `Month` class is created to represent a month of the year. An `ArrayList` is u
 
 ---
 
-# S1 – Tasca 3
 ## Nivell 1 – Exercici 2: ListIterator
 
 ### Enunciat
@@ -96,7 +95,6 @@ The goal is to create a second list that contains the same elements as the first
 
 ---
 
-# S1 – Tasca 3
 ## Nivell 1 – Exercici 3: Capital Game
 
 ### Enunciat
@@ -158,8 +156,6 @@ At the end of the game, the final score is displayed and saved to a file.
 
 ---
 
-
-# S1 – Tasca 3
 ## Nivell 2 – Exercici 1: Restaurants (HashSet & equals/hashCode)
 
 ### Enunciat
@@ -198,3 +194,46 @@ This exercise focuses on using a **HashSet** with custom objects and understandi
 - `HashSet` does not preserve insertion order.
 - Equality is defined by both the `name` and `score` attributes.
 - The `equals()` and `hashCode()` implementations must be consistent to ensure correct behavior in the set.
+
+---
+
+## Nivell 2 – Exercici 2: Restaurants Ordering (Comparable)
+
+### Enunciat
+
+A partir de la classe `Restaurant` creada en l’exercici anterior, implementa la funcionalitat necessària perquè els restaurants es puguin ordenar alfabèticament pel seu nom i, en cas que dos restaurants tinguin el mateix nom, per la seva puntuació en ordre descendent. La ordenació s’ha de fer implementant la interfície `Comparable` o mitjançant un `Comparator`.
+
+---
+
+## Description
+
+This exercise focuses on sorting custom objects using their natural ordering by implementing the `Comparable` interface.
+
+---
+
+## Implementation details
+
+- Reuse the `Restaurant` class from Level 2 Exercise 1.
+- Implement the `Comparable<Restaurant>` interface.
+- Define the `compareTo` method to sort restaurants:
+  - by name in ascending alphabetical order
+  - by score in descending order when names are equal
+- Store restaurants in a `HashSet` to prevent duplicates.
+- Convert the `HashSet` into a `List` and sort it using the natural order.
+
+---
+
+## Technologies used
+
+- Java
+- IntelliJ IDEA
+- Java Collections Framework (`HashSet`, `List`, `ArrayList`, `Collections`)
+- `Comparable`
+
+---
+
+## Notes
+
+- Ordering is based first on the restaurant name and then on the score.
+- `HashSet` is used only to avoid duplicates, not to preserve order.
+- Sorting relies on the natural ordering defined in `compareTo`.
