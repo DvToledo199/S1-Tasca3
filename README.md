@@ -49,6 +49,7 @@ A `Month` class is created to represent a month of the year. An `ArrayList` is u
 - The order of elements is preserved in the `ArrayList`.
 - The order is not guaranteed in the `HashSet`.
 - Duplicate elements are ignored when using a `HashSet`.
+- Duplicate elements are ignored in a HashSet only if equals() and hashCode() are correctly overridden in custom objects.
 
 ---
 
