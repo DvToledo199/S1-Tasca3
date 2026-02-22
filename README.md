@@ -125,17 +125,19 @@ At the end of the game, the final score is displayed and saved to a file.
 
 ## Implementation details
 
-- The file `countries.txt` is read line by line using `BufferedReader`.
-- Each line is split into country and capital and stored in a `HashMap<String, String>`.
+- The file `countries.txt` is read line by line using `BufferedReader` with try-with-resources to ensure the resource is properly closed.
+- Each line is split using `split(" ")`, since in this implementation the country and capital are separated by a space and compound names use underscores (`_`).
+- Each pair is stored in a `HashMap<String, String>`.
+- File operations are handled using `try-catch` blocks instead of propagating exceptions with `throws Exception`.
 - The user is asked to enter their name.
 - A list of countries is created from the map keys to allow random selection.
 - Ten different countries are selected randomly.
 - After each question:
-  - the answer is checked (ignoring case)
+  - the answer is checked using `equalsIgnoreCase()`
   - feedback is shown to the user
   - the used country is removed to avoid repetition
 - The final score is displayed.
-- The user name and score are appended to `classification.txt`.
+- The user name and score are appended to `classification.txt` using `BufferedWriter` with try-with-resources.
 
 ---
 
@@ -143,7 +145,7 @@ At the end of the game, the final score is displayed and saved to a file.
 
 - Java
 - IntelliJ IDEA
-- Java I/O (`BufferedReader`, `BufferedWriter`)
+- Java I/O (`BufferedReader`, `BufferedWriter`, `FileReader`, `FileWriter`)
 - Java Collections Framework (`HashMap`, `ArrayList`, `List`)
 - `Random`
 
@@ -155,6 +157,8 @@ At the end of the game, the final score is displayed and saved to a file.
 - Capital comparison ignores uppercase and lowercase differences.
 - The results file is created automatically if it does not exist.
 - Each game session appends a new line to the classification file.
+- Resources are automatically closed thanks to try-with-resources.
+- The separator used in `split()` matches the actual format of the provided file.
 
 ---
 

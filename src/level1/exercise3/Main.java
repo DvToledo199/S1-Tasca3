@@ -1,24 +1,25 @@
 package level1.exercise3;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         Map<String, String> mapCountries = new HashMap<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader("countries.txt"));
-        String line;
+        try (BufferedReader reader = new BufferedReader(new FileReader("countries.txt"))) {
 
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(" ");
-            mapCountries.put(parts[0], parts[1]);
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(" ");
+                mapCountries.put(parts[0], parts[1]);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading countries file.");
         }
-        reader.close();
 
         Scanner sc = new Scanner(System.in);
 
@@ -27,7 +28,7 @@ public class Main {
 
         List<String> listCountries = new ArrayList<>(mapCountries.keySet());
 
-        int sumaPuntos = 0;
+        int score = 0;
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
@@ -39,7 +40,7 @@ public class Main {
             String answer = sc.nextLine();
 
             if (answer.equalsIgnoreCase(mapCountries.get(randomCountry))) {
-                sumaPuntos++;
+                score++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("Incorrect, the capital is: " + mapCountries.get(randomCountry));
@@ -47,12 +48,17 @@ public class Main {
             listCountries.remove(randomCountry);
         }
 
-        System.out.println("Congratulations! Your final score is: " + sumaPuntos + " points.");
+        System.out.println("Congratulations! Your final score is: " + score + " points.");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("classification.txt", true));
-        writer.write(namePlayer + " - " + sumaPuntos + " points");
-        writer.newLine();
-        writer.close();
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("classification.txt", true))) {
+
+            writer.write(namePlayer + " - " + score + " points");
+            writer.newLine();
+
+        } catch (IOException e) {
+            System.out.println("Error writing classification file.");
+        }
 
         sc.close();
 
